@@ -15,7 +15,8 @@ class DiDiDeModelClass(torch.nn.Module):
         )
         self.dropout = torch.nn.Dropout(dropout_rate)
         self.classifier1 = torch.nn.Linear(self.bert.config.hidden_size, 1024)
-        self.classifier2 = torch.nn.Linear(1024, 3)
+        self.classifier2 = torch.nn.Linear(1024, 768)
+        self.classifier3 = torch.nn.Linear(768, 3)
         self.softmax = torch.nn.Softmax(dim=-1)
 
     def forward(self, input_ids, attention_mask, token_type_ids):
@@ -28,6 +29,7 @@ class DiDiDeModelClass(torch.nn.Module):
         output = self.dropout(output)
         output = self.classifier1(output)
         output = self.classifier2(output)
+        output = self.classifier3(output)
         output = self.softmax(output)
         return output
 

@@ -18,7 +18,7 @@ np.random.shuffle(files)
 
 # read json files
 samples = []
-for file in tqdm.tqdm(files[:15]):
+for file in tqdm.tqdm(files[:500]):
     with open(file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
         for line in lines:
@@ -33,9 +33,15 @@ for file in tqdm.tqdm(files[:15]):
                                 dict_dedede[text[i]])
                         samples.append(sample)
                     else:
-                        for j in range(random.randint(1, 15)):
+                        for j in range(random.randint(1, 3)):
                             l_ = random.randint(1, 15)
                             r_ = random.randint(1, 15)
+                            sample = (text[i-l_:i], text[i+1:i+r_],
+                                    dict_dedede[text[i]])
+                            samples.append(sample)
+                        for j in range(random.randint(1, 6)):
+                            l_ = random.randint(3, 5)
+                            r_ = random.randint(3, 5)
                             sample = (text[i-l_:i], text[i+1:i+r_],
                                     dict_dedede[text[i]])
                             samples.append(sample)

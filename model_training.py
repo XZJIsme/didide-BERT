@@ -49,7 +49,7 @@ test_dataloader = torch.utils.data.DataLoader(
 
 
 model = didide_model.DiDiDeModelClass(
-    pretrained_model_path=pretrained_model_path, dropout_rate=0.0)
+    pretrained_model_path=pretrained_model_path, dropout_rate=0.1)
 hidden_size = model.bert.config.hidden_size
 
 if torch.cuda.is_available():
@@ -60,12 +60,14 @@ if torch.cuda.is_available():
 
 # optimizer = torch.optim.Adam(
 #     model.parameters(), lr=1e-5, betas=(0.9, 0.999), weight_decay=0.01)
-optimizer = torch.optim.Adam(
-    model.parameters(), lr=1e-4)
 # optimizer = torch.optim.SGD(
 #     model.parameters(), lr=1e-5, momentum=0.9)
 # adam_optimizer_scheduler = optim_schedule.ScheduledOptim(
 #     optimizer, hidden_size, n_warmup_steps=10000)
+optimizer = torch.optim.Adam(
+    model.parameters(), lr=2e-5)
+optimizer_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+    optimizer, mode='max', factor=0.5, patience=1, verbose=True, threshold=0.0001, threshold_mode='rel', cooldown=0, min_lr=0, eps=1e-08)
 
 
 # def loss_fn(outputs, targets):
@@ -78,7 +80,7 @@ optimizer = torch.optim.Adam(
 # loss_fn = torch.nn.CrossEntropyLoss()
 loss_fn = torch.nn.BCEWithLogitsLoss()
 
-epochs = 3
+epochs = 30
 
 for epoch in range(epochs):
     model.train()
@@ -116,6 +118,9 @@ for epoch in range(epochs):
                               == torch.argmax(targets, dim=-1)).item()
     accuracy /= len(val_dataset)
     print("epoch: {}, accuracy: {}".format(epoch, accuracy))
+    torch.save(model, "saved+models/" + save_path + ".epoch_{}".format(epoch))
+    if accuracy > 0.99:
+        break
 
 model.eval()
 test_data_iter = tqdm.tqdm(

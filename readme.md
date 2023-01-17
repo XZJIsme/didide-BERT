@@ -1,5 +1,7 @@
 # 保护地得，从我做起
-Didide 是基于 BERT 预训练模型进行微调的“的地得”纠错模型，其训练数据是维基百科中文语料库生成的
+Didide 是基于 BERT 预训练模型进行微调的“的地得”纠错模型，训练数据使用维基百科中文语料库生成。
+# Sir, this way
+Didide is a model for correcting 的, 地, 得 based on BERT. The training data is generated from the Chinese Wikipedia corpus.
 ## Get started now
 ```bash
 conda create -n huggingface python=3.10 -y
@@ -41,12 +43,22 @@ To get a better distribution, the number of 的 is reduced.
 ## Train the model
 ```bash
 python model_training.py
+# with a good hyperparameter setting, just a few epochs needed to obtain a good accuracy on test set like about 96%.
 ```
 ## Give it a try
 ```bash
 python playground.py "我觉的我烦的有点难过，因为我得培根忘记吃了"
-# an ideal output should be: 我觉得我烦得有点难过，因为我的培根忘记吃了
+# output: 我觉得我烦得有点难过，因为我的培根忘记吃了
 ```
+## In the last
+本项目仅供学习交流，如有问题请提 issue ！有什么好建议请随时提 issue ！
+
+Also, welcome to contribute to this project! A trained model will be released soon.
+## ToDo
+- Add a trained model
+- The way of generating test dataset should match the way of the playground, different from the way of training data generation, then the robustness of the model can be tested more reasonably.
+- Give a lightweigth model by quantization.
+- Give an elaborate instroduction in Chinese. 是中国人就说你好！（就让我享受一下假装在用英文写 readme 的感觉吧）
 ## Reference
 - [NLP Chinese Corpus](https://github.com/brightmart/nlp_chinese_corpus)
 - [Hugging Face](https://huggingface.co/transformers/quicktour.html)
