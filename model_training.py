@@ -58,10 +58,10 @@ if torch.cuda.is_available():
     if torch.cuda.device_count() > 1:
         model = torch.nn.DataParallel(model)
 
-optimizer = torch.optim.Adam(
-    model.parameters(), lr=1e-5, betas=(0.9, 0.999), weight_decay=0.01)
 # optimizer = torch.optim.Adam(
-#     model.parameters(), lr=1e-4)
+#     model.parameters(), lr=1e-5, betas=(0.9, 0.999), weight_decay=0.01)
+optimizer = torch.optim.Adam(
+    model.parameters(), lr=1e-4)
 # optimizer = torch.optim.SGD(
 #     model.parameters(), lr=1e-5, momentum=0.9)
 # adam_optimizer_scheduler = optim_schedule.ScheduledOptim(
