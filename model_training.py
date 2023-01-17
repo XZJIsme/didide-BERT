@@ -58,14 +58,14 @@ if torch.cuda.is_available():
     if torch.cuda.device_count() > 1:
         model = torch.nn.DataParallel(model)
 
-# adam_optimizer = torch.optim.Adam(
-#     model.parameters(), lr=1e-5, betas=(0.9, 0.999), weight_decay=0.01)
 optimizer = torch.optim.Adam(
-    model.parameters(), lr=1e-4)
+    model.parameters(), lr=1e-5, betas=(0.9, 0.999), weight_decay=0.01)
+# optimizer = torch.optim.Adam(
+#     model.parameters(), lr=1e-4)
 # optimizer = torch.optim.SGD(
 #     model.parameters(), lr=1e-5, momentum=0.9)
 # adam_optimizer_scheduler = optim_schedule.ScheduledOptim(
-#     adam_optimizer, hidden_size, n_warmup_steps=5000)
+#     optimizer, hidden_size, n_warmup_steps=10000)
 
 
 # def loss_fn(outputs, targets):
@@ -78,7 +78,7 @@ optimizer = torch.optim.Adam(
 # loss_fn = torch.nn.CrossEntropyLoss()
 loss_fn = torch.nn.BCEWithLogitsLoss()
 
-epochs = 10
+epochs = 5
 
 for epoch in range(epochs):
     model.train()
@@ -140,6 +140,6 @@ print("test accuracy: {}, loss: {}".format(accuracy, loss))
 
 # save model's weights
 if torch.cuda.device_count() > 1:
-    torch.save(model.module.cpu(), save_path + '.epoch_{}'.format(epoch))
+    torch.save(model.module.cpu(), save_path)
 else:
-    torch.save(model.cpu(), save_path + '.epoch_{}'.format(epoch))
+    torch.save(model.cpu(), save_path)

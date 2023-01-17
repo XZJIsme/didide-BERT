@@ -32,6 +32,8 @@ for file in glob.glob("data/wiki_zh/**", recursive=True):
     if os.path.isdir(file):
         continue
     files.append(file)
+# Total samples:  311569
+# 的：122867，地：129195，得：59507
 ```
 ## Train the model
 ```bash
