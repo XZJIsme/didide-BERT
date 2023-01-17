@@ -58,7 +58,7 @@ Also, welcome to contribute to this project! A trained model will be released so
 - Add a trained model
 - The way of generating test dataset should match the way of the playground, different from the way of training data generation, then the robustness of the model can be tested more reasonably.
 - Give a lightweigth model by quantization.
-- Give an elaborate instroduction in Chinese. 是中国人就说你好！（就让我享受一下假装在用英文写 readme 的感觉吧）
+- Give an elaborate instroduction in Chinese. 是中国人就说你好！
 ## Reference
 - [NLP Chinese Corpus](https://github.com/brightmart/nlp_chinese_corpus)
 - [Hugging Face](https://huggingface.co/transformers/quicktour.html)
