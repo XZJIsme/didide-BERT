@@ -32,8 +32,21 @@ for file in tqdm.tqdm(files[:500]):
                         sample = (text[i-l_:i], text[i+1:i+r_],
                                 dict_dedede[text[i]])
                         samples.append(sample)
+                    elif text[i] == '地':
+                        for j in range(random.randint(1, 5)):
+                            l_ = random.randint(1, 15)
+                            r_ = random.randint(1, 15)
+                            sample = (text[i-l_:i], text[i+1:i+r_],
+                                    dict_dedede[text[i]])
+                            samples.append(sample)
+                        for j in range(random.randint(1, 6)):
+                            l_ = random.randint(3, 5)
+                            r_ = random.randint(3, 5)
+                            sample = (text[i-l_:i], text[i+1:i+r_],
+                                    dict_dedede[text[i]])
+                            samples.append(sample)
                     else:
-                        for j in range(random.randint(1, 3)):
+                        for j in range(random.randint(1, 10)):
                             l_ = random.randint(1, 15)
                             r_ = random.randint(1, 15)
                             sample = (text[i-l_:i], text[i+1:i+r_],

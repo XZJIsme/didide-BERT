@@ -80,7 +80,7 @@ optimizer_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
 # loss_fn = torch.nn.CrossEntropyLoss()
 loss_fn = torch.nn.BCEWithLogitsLoss()
 
-epochs = 30
+epochs = 20
 
 for epoch in range(epochs):
     model.train()

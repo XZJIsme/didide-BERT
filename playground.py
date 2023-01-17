@@ -25,24 +25,9 @@ if __name__ == "__main__":
     for i in range(len(text)):
         if text[i] == "的" or text[i] == "地" or text[i] == "得":
             opt = None
-            # for j in range(3):
-            #     l_ = random.randint(1, 15)
-            #     r_ = random.randint(1, 15)
-            #     sample = (text[i - l_ : i], text[i + 1 : i + r_], dict_dedede[text[i]])
-            #     tokenized_sample = tokenizer(sample[0], sample[1], padding="longest")
-            #     for key in tokenized_sample.keys():
-            #         tokenized_sample[key] = [tokenized_sample[key]]
-            #     for key in tokenized_sample.keys():
-            #         tokenized_sample[key] = torch.tensor(tokenized_sample[key])
-            #     output = model(**tokenized_sample)
-            #     # print(output)
-            #     if opt is None:
-            #         opt = output
-            #     else:
-            #         opt += output
-            for j in range(3):
-                l_ = random.randint(3, 5)
-                r_ = random.randint(3, 5)
+            for j in range(10):
+                l_ = random.randint(1, 10)
+                r_ = random.randint(1, 10)
                 sample = (text[i - l_ : i], text[i + 1 : i + r_], dict_dedede[text[i]])
                 tokenized_sample = tokenizer(sample[0], sample[1], padding="longest")
                 for key in tokenized_sample.keys():
@@ -50,7 +35,6 @@ if __name__ == "__main__":
                 for key in tokenized_sample.keys():
                     tokenized_sample[key] = torch.tensor(tokenized_sample[key])
                 output = model(**tokenized_sample)
-                # print(output)
                 if opt is None:
                     opt = output
                 else:
