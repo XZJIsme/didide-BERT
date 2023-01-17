@@ -39,7 +39,7 @@ dididedataset = DiDiDeDataset()
 train_dataset, val_dataset, test_dataset = torch.utils.data.random_split(
     dididedataset, [int(len(dididedataset)*0.8), int(len(dididedataset)*0.1), len(dididedataset)-int(len(dididedataset)*0.8)-int(len(dididedataset)*0.1)])
 
-batch_size = 1024 + 256
+batch_size = 1024
 train_dataloader = torch.utils.data.DataLoader(
     train_dataset, batch_size=batch_size, shuffle=False)
 val_dataloader = torch.utils.data.DataLoader(
