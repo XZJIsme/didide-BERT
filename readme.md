@@ -8,7 +8,6 @@ conda create -n huggingface python=3.10 -y
 conda activate huggingface
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y
 pip install transformers datasets
-python model_training.py
 ```
 ## Convert TensorFlow pre-trained BERT models to PyTorch
 ```bash
