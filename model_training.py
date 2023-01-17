@@ -78,7 +78,7 @@ optimizer = torch.optim.Adam(
 # loss_fn = torch.nn.CrossEntropyLoss()
 loss_fn = torch.nn.BCEWithLogitsLoss()
 
-epochs = 5
+epochs = 3
 
 for epoch in range(epochs):
     model.train()

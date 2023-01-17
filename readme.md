@@ -34,6 +34,9 @@ for file in glob.glob("data/wiki_zh/**", recursive=True):
     files.append(file)
 # Total samples:  311569
 # 的：122867，地：129195，得：59507
+"""
+To get a better distribution, the number of 的 is reduced.
+"""
 ```
 ## Train the model
 ```bash
