@@ -118,7 +118,7 @@ for epoch in range(epochs):
                               == torch.argmax(targets, dim=-1)).item()
     accuracy /= len(val_dataset)
     print("epoch: {}, accuracy: {}".format(epoch, accuracy))
-    torch.save(model, "saved+models/" + save_path + ".epoch_{}".format(epoch))
+    torch.save(model, "saved_models/" + save_path + ".epoch_{}".format(epoch))
     if accuracy > 0.99:
         break
 
