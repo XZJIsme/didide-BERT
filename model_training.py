@@ -49,7 +49,7 @@ test_dataloader = torch.utils.data.DataLoader(
 
 
 model = didide_model.DiDiDeModelClass(
-    pretrained_model_path=pretrained_model_path, dropout_rate=0.2)
+    pretrained_model_path=pretrained_model_path, dropout_rate=0.0)
 hidden_size = model.bert.config.hidden_size
 
 if torch.cuda.is_available():
@@ -60,10 +60,10 @@ if torch.cuda.is_available():
 
 # adam_optimizer = torch.optim.Adam(
 #     model.parameters(), lr=1e-5, betas=(0.9, 0.999), weight_decay=0.01)
-# optimizer = torch.optim.Adam(
-#     model.parameters(), lr=1e-5)
-optimizer = torch.optim.SGD(
-    model.parameters(), lr=1e-5, momentum=0.9)
+optimizer = torch.optim.Adam(
+    model.parameters(), lr=1e-4)
+# optimizer = torch.optim.SGD(
+#     model.parameters(), lr=1e-5, momentum=0.9)
 # adam_optimizer_scheduler = optim_schedule.ScheduledOptim(
 #     adam_optimizer, hidden_size, n_warmup_steps=5000)
 
@@ -110,6 +110,7 @@ for epoch in range(epochs):
             tokenized[key] = torch.tensor(tokenized[key]).to(device)
         targets = torch.nn.functional.one_hot(
             batch[2], num_classes=3).to(device)
+        targets = targets.float()
         outputs = model(**tokenized)
         accuracy += torch.sum(torch.argmax(outputs, dim=-1)
                               == torch.argmax(targets, dim=-1)).item()
@@ -120,7 +121,7 @@ model.eval()
 test_data_iter = tqdm.tqdm(
     enumerate(test_dataloader), total=len(test_dataloader))
 accuracy = 0
-loss = 0
+loss = 0.0
 for i, batch in test_data_iter:
     tokenized = tokenizer(
         batch[0], batch[1], padding='longest')
@@ -128,6 +129,7 @@ for i, batch in test_data_iter:
         tokenized[key] = torch.tensor(tokenized[key]).to(device)
     targets = torch.nn.functional.one_hot(
         batch[2], num_classes=3).to(device)
+    targets = targets.float()
     outputs = model(**tokenized)
     accuracy += torch.sum(torch.argmax(outputs, dim=-1)
                           == torch.argmax(targets, dim=-1)).item()
@@ -136,5 +138,8 @@ accuracy /= len(test_dataset)
 loss /= len(test_dataset)
 print("test accuracy: {}, loss: {}".format(accuracy, loss))
 
-# save model
-torch.save(model.cpu(), save_path + '.epoch_{}'.format(epoch))
+# save model's weights
+if torch.cuda.device_count() > 1:
+    torch.save(model.module.cpu(), save_path + '.epoch_{}'.format(epoch))
+else:
+    torch.save(model.cpu(), save_path + '.epoch_{}'.format(epoch))

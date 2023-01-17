@@ -1,6 +1,7 @@
 # 保护地得，从我做起
+Didide 是基于 BERT 预训练模型进行微调的“的地得”纠错模型，其训练数据是维基百科中文语料库生成的
 ## Get started now
-```
+```bash
 conda create -n huggingface python=3.10 -y
 conda activate huggingface
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y
@@ -8,7 +9,7 @@ pip install transformers datasets
 python model_training.py
 ```
 ## Convert TensorFlow pre-trained BERT models to PyTorch
-```
+```bash
 conda install tensorflow -y
 mkdir BERT-trained
 cd BERT-trained
@@ -16,6 +17,7 @@ wget https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-
 unzip chinese_L-12_H-768_A-12.zip
 cd ..
 python bert_converter.py
+# of course, you can also use the default chinese bert model provided by huggingface which may be better
 ```
 ## Generate DidideData
 ```python
@@ -32,10 +34,14 @@ for file in glob.glob("data/wiki_zh/**", recursive=True):
     files.append(file)
 ```
 ## Train the model
-```
+```bash
 python model_training.py
 ```
 ## Give it a try
-```
+```bash
 python playground.py --text "我觉的我烦的有点难过，因为我得培根忘记吃了"
+# an ideal output should be: 我觉得我烦得有点难过，因为我得培根忘记吃了
 ```
+## Reference
+- [NLP Chinese Corpus](https://github.com/brightmart/nlp_chinese_corpus)
+- [Hugging Face](https://huggingface.co/transformers/quicktour.html)
