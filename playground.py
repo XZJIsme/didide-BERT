@@ -5,7 +5,7 @@ from transformers import BertTokenizer
 import random, os
 from didide_model import DiDiDeModelClass
 
-model_path = "didide_model.pt.epoch_9"
+model_path = "didide_model.pt"
 
 # model is a DiDiDeModelClass
 model: DiDiDeModelClass = torch.load(model_path)
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     try:
         text = sys.argv[1]
     except:
-        text = "这件事情做的很不厚道，因为我得培根忘记吃了"
+        text = "我觉得我烦得有点难过，因为我的培根忘记吃了"
     dict_dedede = {"的": 0, "地": 1, "得": 2}
     dedede_dict = {0: "的", 1: "地", 2: "得"}
     for i in range(len(text)):
@@ -35,7 +35,7 @@ if __name__ == "__main__":
                 for key in tokenized_sample.keys():
                     tokenized_sample[key] = torch.tensor(tokenized_sample[key])
                 output = model(**tokenized_sample)
-                print(output)
+                # print(output)
                 if opt is None:
                     opt = output
                 else:

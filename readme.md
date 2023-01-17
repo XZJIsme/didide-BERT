@@ -44,7 +44,7 @@ python model_training.py
 ```
 ## Give it a try
 ```bash
-python playground.py --text "我觉的我烦的有点难过，因为我得培根忘记吃了"
+python playground.py "我觉的我烦的有点难过，因为我得培根忘记吃了"
 # an ideal output should be: 我觉得我烦得有点难过，因为我的培根忘记吃了
 ```
 ## Reference
