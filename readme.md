@@ -9,7 +9,7 @@ conda activate huggingface
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y
 pip install transformers datasets
 ```
-## Convert TensorFlow pre-trained BERT models to PyTorch
+## Convert a TensorFlow pre-trained BERT model to PyTorch
 ```bash
 conda install tensorflow -y
 mkdir BERT-trained
@@ -44,6 +44,9 @@ To get a better distribution, the number of 的 is reduced.
 python model_training.py
 # with a good hyperparameter setting, just a few epochs needed to obtain a good accuracy on test set like about 96%.
 ```
+## Trained models
+[百度网盘](https://pan.baidu.com/s/1iLN8Vfh8El5C9cLdXo6E6g?pwd=ddde)
+
 ## Give it a try
 ```bash
 python playground.py "我觉的我烦的有点难过，因为我得培根忘记吃了"
@@ -54,7 +57,7 @@ python playground.py "我觉的我烦的有点难过，因为我得培根忘记�
 
 Also, welcome to contribute to this project! A trained model will be released soon.
 ## ToDo
-- Add a trained model
+- ~~Add a trained model~~ ✔
 - The way of generating test dataset should match the way of the playground, different from the way of training data generation, then the robustness of the model can be tested more reasonably.
 - Give a lightweigth model by quantization.
 - Give an elaborate instroduction in Chinese. 是中国人就说你好！
