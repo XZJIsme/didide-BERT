@@ -45,12 +45,12 @@ python model_training.py
 # with a good hyperparameter setting, just a few epochs needed to obtain a good accuracy on test set like about 96%.
 ```
 ## Trained models
-[百度网盘](https://pan.baidu.com/s/1iLN8Vfh8El5C9cLdXo6E6g?pwd=ddde)
+[百度网盘](https://pan.baidu.com/s/1jlt3Nzjr6kUGn58N9tSErg?pwd=ddde)
 
 ## Give it a try
 ```bash
-python playground.py "我觉的我烦的有点难过，因为我得培根忘记吃了"
-# output: 我觉得我烦得有点难过，因为我的培根忘记吃了
+python playground.py "我觉的我烦的有点难过，因为我得培根忘记吃了" "didide_model.pt"
+# an ideal output'd be: 我觉得我烦得有点难过，因为我的培根忘记吃了
 ```
 ## In the last
 本项目仅供学习交流，如有问题请提 issue ！有什么好建议请随时提 issue ！
