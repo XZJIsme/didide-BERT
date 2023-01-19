@@ -50,7 +50,9 @@ python model_training.py
 ## Give it a try
 ```bash
 python playground.py "我觉的我烦的有点难过，因为我得培根忘记吃了" "didide_model.pt"
-# an ideal output'd be: 我觉得我烦得有点难过，因为我的培根忘记吃了
+# the output'd be: 我觉得我烦得有点难过，因为我的培根忘记吃了
+python playground.py "我觉的我烦的有点难过，因为我得培根忘记吃了，而且这种东西得营养一般般，但是好吃的哟！我天天早上开心的享受它的味道，开心的受不鸟了" "didide_model.pt"
+# the output'd be: 我觉得我烦得有点难过，因为我的培根忘记吃了，而且这种东西的营养一般般，但是好吃的哟！我天天早上开心地享受它的味道，开心得受不鸟了
 ```
 ## In the last
 本项目仅供学习交流，如有问题请提 issue ！有什么好建议请随时提 issue ！
