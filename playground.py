@@ -42,20 +42,6 @@ if __name__ == "__main__":
                     opt = output
                 else:
                     opt += output
-            # for j in range(10):
-            #     l_ = 15
-            #     r_ = 15
-            #     sample = (text[i - l_ : i], text[i + 1 : i + r_], dict_dedede[text[i]])
-            #     tokenized_sample = tokenizer(sample[0], sample[1], padding="longest")
-            #     for key in tokenized_sample.keys():
-            #         tokenized_sample[key] = [tokenized_sample[key]]
-            #     for key in tokenized_sample.keys():
-            #         tokenized_sample[key] = torch.tensor(tokenized_sample[key])
-            #     output = model(**tokenized_sample)
-            #     if opt is None:
-            #         opt = output
-            #     else:
-            #         opt += output
             opt = int(opt.argmax(dim=-1).item())
             text = text[:i] + dedede_dict[opt] + text[i + 1 :]
 
