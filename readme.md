@@ -55,7 +55,7 @@ python playground.py "我觉的我烦的有点难过，因为我得培根忘记�
 # the output'd be: 我觉得我烦得有点难过，因为我的培根忘记吃了，而且这种东西的营养一般般，但是好吃的哟！我天天早上开心地享受它的味道，开心得受不鸟哩！我咔咔地吃，吃得要满嘴流油，哈哈哈，痛快放肆地吃
 python playground.py "我要飛的更高，測試一下繁體預測的對不對，分類的還不錯"
 # the output'd be: 我要飛得更高，測試一下繁體預測的對不對，分類得還不錯
-# also works well with traditional Chinese
+# also works well with traditional Chinese. Yeah, it's because they have same input ids actually.
 ```
 ## In the last
 本模型其实就是 BERT 加了个 MLP。简单说下获得的经验吧！一个就是数据的分布会影响训练的性能，所以“地”“得”的样本数量被增加了；另一个就是数据集变超大后训练了两天两夜效果果然也相应地变更好，果然 Transformer 类模型就是要大力出奇迹啊！
