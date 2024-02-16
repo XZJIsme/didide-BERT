@@ -7,8 +7,8 @@ Due to the homophones "的" (de), "地" (de), and "得" (de) in Mandarin Chinese
 Didide is a model for classifying 的, 地, 得 based on BERT. The training data is generated from the Chinese Wikipedia corpus.
 ## Get started now
 ```bash
-conda create -n huggingface python=3.10 -y
-conda activate huggingface
+conda create -n didide python=3.10 -y
+conda activate didide
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch -y
 pip install transformers datasets
 ```
