@@ -76,4 +76,4 @@ Also, welcome to contribute to this project! A trained model has been released. 
 ## Reference
 - [NLP Chinese Corpus](https://github.com/brightmart/nlp_chinese_corpus)
 - [Hugging Face](https://huggingface.co/transformers/quicktour.html)
-- [的地得警队 - 豆瓣小组](https://www.douban.com/group/729399/)
+- [的地得警队 ("policemen" to catch people who interchange 的,地,得) - 豆瓣小组](https://www.douban.com/group/729399/)
