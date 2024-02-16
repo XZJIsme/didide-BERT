@@ -1,5 +1,8 @@
 # 保护地得，从我做起
-Didide 是基于 BERT 预训练模型进行微调的“的地得”纠错模型，训练数据使用维基百科中文语料库生成。
+Didide 是基于 BERT 预训练模型进行微调的“的地得”纠错模型，训练数据使用维基百科中文语料库生成。很多人在网上打字爱用“的”代替“得”和“地”，轻则影响观感，重则造成歧义。大家不爱正确用字，无可厚非，但是也令人遗憾，因为这没那么难。
+
+Due to the homophones "的" (de), "地" (de), and "得" (de) in Mandarin Chinese, many people tend to interchange them when typing, which can affect readability and even lead to ambiguity. While it's understandable that not everyone pays strict attention to proper word usage, it's also a pity because it's not that difficult to use them correctly.
+
 # Sir, this way
 Didide is a model for classifying 的, 地, 得 based on BERT. The training data is generated from the Chinese Wikipedia corpus.
 ## Get started now
